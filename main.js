@@ -43,16 +43,23 @@ What different attributes computers may have?
 Create two computers object from your factory function and save them in one array called computers!
 
 Note: please write one or two lines here describing your solution.
-*/
 
+*/// makeComputers function Assigning a key and and a value to the object, display computer is used to display the key and the value of the object .
+var computer = {}
 function makeComputer(type, color, weight) {
-  // TODO: Your code here
+  // TODO: Your code here 
+
+  computer["type"] = type, 
+  computer["color"] = color,
+  computer["weight"] = weight
+
+  
 }
 
 // Write a function displayComputer that can be used to display one computer.
 
 function displayComputer(computer) {
-  // TODO: Your code here
+  return computer["type"] + ' ' + computer["color"] + ' ' + computer["weight"] ; 
 }
 
 //=============================================================================
@@ -71,9 +78,11 @@ Note: please write one or two lines here describing your solution.
 var strArr = ['hello', 'world', 'whirled', 'peas'];
 uppercaseAll(strArr); ==> [ 'HELLO', 'WORLD', 'WHIRLED', 'PEAS' ]
 */
-
+//uppercaseAll function is used to convert all characters to upperCase , using map function for iterataion by each function and storing it accumulator that checks using toUpperCase method.
 function uppercaseAll(arrayOfStrings) {
-  // TODO: your code here
+return map(arrayOfStrings, function (value){
+    return  value.toUpperCase();
+}); 
 }
 
 //=============================================================================
@@ -112,7 +121,9 @@ var data = [
 ];
 
 function highestPopulation(arrayOfObjects) {
-  // TODO: your code here
+  return filter(arrayOfObjects, function (value, index) {
+    return value["population"] >500000000;
+  });
 }
 
 //=============================================================================
@@ -130,9 +141,16 @@ halveAll(numsArray); ==> [ 1, 3, 10, 4, 7 ]
 
 Note: please write one or two lines here describing your solution.
 */
-
+//Used the map function  , checked if the the number is even or odd before dividing by 2 , if it's odd it will round it to zero. 
+var numsArray = [2, 6, 20, 8, 14];
 function halveAll(numbers) {
-  // your code is here
+return  map(numbers, function (value) {
+   if (value % 2 === 0 ) {
+      return value / 2;
+   } else {
+      return  floor(value / 2);
+    }
+  });
 }
 
 //=============================================================================
@@ -148,7 +166,11 @@ values({first : 5, second: 'something' , third : 129}) ==> [5, 'something', 129]
 Note: please write one or two lines here describing your solution.
 */
 function values(obj) {
-  // TODO: your code here
+  if (!Array.isArray(obj)) {
+    return filter(obj, function (value, key) {
+       return value;
+    });
+  }   
 }
 
 //Good Luck :))
