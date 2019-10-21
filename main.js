@@ -165,6 +165,7 @@ values({first : 5, second: 'something' , third : 129}) ==> [5, 'something', 129]
 
 Note: please write one or two lines here describing your solution.
 */
+// This function checks if the value entered is an object then the filter function  iterate and returns the value of object in an array w/o condtions.
 function values(obj) {
   if (!Array.isArray(obj)) {
     return filter(obj, function (value, key) {
